@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 export default function Home() {
   const router = useRouter();
-  router.push("/user/profile");
+
+  React.useEffect(() => {
+    router.push("/user/profile");
+  }, []);
 
   return (
     <main className={styles.main}>
@@ -18,11 +20,3 @@ export default function Home() {
     </main>
   );
 }
-
-// export async function getStaticProps() {
-//   const router = useRouter();
-//   router.replace("/user/profile");
-//   return {
-//     props: {},
-//   };
-// }
